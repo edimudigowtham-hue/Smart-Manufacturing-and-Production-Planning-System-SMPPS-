@@ -42,7 +42,7 @@ public class MachineLog {
     @PositiveOrZero(message = "Downtime hours cannot be negative")
     private Double downtimeHours = 0.0;
 
-    private String downtimeReason;
+
 
     @Enumerated(EnumType.STRING)
     private MachineStatus machineStatus;
