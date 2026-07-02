@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Manufacturing & Production Planning System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+<div class="sidebar">
+    <h4 class="text-center text-white py-3"> SMPPS</h4>
+    <div class="user-panel px-3 pb-3 small">
+        <div class="text-white-50">Signed in as</div>
+        <div id="current-user" class="fw-bold text-white">Loading...</div>
+        <div id="current-roles" class="text-white-50"></div>
+        <button id="logout-button" class="btn btn-sm btn-outline-light w-100 mt-2" type="button">Logout</button>
+    </div>
+    <a href="/dashboard" class="nav-link active-link" data-section="dashboard">🏠 Dashboard</a>
+    <a href="/products" class="nav-link" data-section="products" data-roles="ADMIN,PRODUCTION_PLANNER,SHOP_FLOOR_SUPERVISOR,QUALITY_INSPECTOR">📦 Products</a>
+    <a href="/orders" class="nav-link" data-section="orders" data-roles="ADMIN,PRODUCTION_PLANNER,SHOP_FLOOR_SUPERVISOR,QUALITY_INSPECTOR">📝 Orders</a>
+    <a href="/machines" class="nav-link" data-section="machines" data-roles="ADMIN,PRODUCTION_PLANNER,SHOP_FLOOR_SUPERVISOR,MAINTENANCE_ENGINEER">⚙️ Machines</a>
+    <a href="/quality" class="nav-link" data-section="quality" data-roles="ADMIN,QUALITY_INSPECTOR">✅ Quality</a>
+    <a href="/maintenance" class="nav-link" data-section="maintenance" data-roles="ADMIN,MAINTENANCE_ENGINEER">🛠️ Maintenance</a>
+</div>
+
+<main class="content">
+    <div id="alert-container"></div>
+
+    <div data-page-partial="partials/dashboard.html"></div>
+    <div data-page-partial="partials/products.html"></div>
+    <div data-page-partial="partials/orders.html"></div>
+    <div data-page-partial="partials/machines.html"></div>
+    <div data-page-partial="partials/quality.html"></div>
+    <div data-page-partial="partials/maintenance.html"></div>
+</main>
+
+<div class="modal fade" id="product-structure-modal" tabindex="-1" aria-labelledby="product-structure-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="product-structure-title">Product Structure</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="product-structure-summary" class="mb-3"></div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped align-middle mb-0">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>Component Code</th>
+                            <th>Component Name</th>
+                            <th>Quantity</th>
+                            <th>Unit</th>
+                            <th>BOM Version</th>
+                        </tr>
+                        </thead>
+                        <tbody id="product-structure-components"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/modules/dashboard.js"></script>
+<script src="js/modules/products.js"></script>
+<script src="js/modules/machines.js"></script>
+<script src="js/modules/orders.js"></script>
+<script src="js/modules/quality.js"></script>
+<script src="js/modules/maintenance.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<section id="machines" class="page-section d-none">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">Machine Monitoring</h2>
+        <button class="btn btn-outline-primary" data-refresh="machines">Refresh</button>
+    </div>
+    <form id="machine-form" class="card p-3 mb-4" data-roles="ADMIN,MAINTENANCE_ENGINEER">
+        <h5>Register Factory Machine</h5>
+        <div class="row g-2">
+            <div class="col-md-3"><input id="factoryMachineId" type="number" class="form-control" placeholder="Machine ID" required></div>
+            <div class="col-md-5"><input id="factoryMachineName" class="form-control" placeholder="Machine Name" required></div>
+            <div class="col-md-3"><select id="factoryMachineAvailability" class="form-select" required><option value="AVAILABLE">AVAILABLE</option><option value="UNAVAILABLE">UNAVAILABLE</option></select></div>
+            <div class="col-md-1 d-grid"><button class="btn btn-primary">Add</button></div>
+        </div>
+    </form>
+    <div class="table-responsive mb-4"><table class="table table-bordered table-striped align-middle"><thead class="table-dark"><tr><th>Machine ID</th><th>Name</th><th>Availability</th><th>Actions</th></tr></thead><tbody id="factory-machines-table"></tbody></table></div>
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <form id="runtime-form" class="card p-3 h-100" data-roles="ADMIN,SHOP_FLOOR_SUPERVISOR,MAINTENANCE_ENGINEER">
+                <h5>Record Runtime</h5>
+                <select id="runtimeMachineId" class="form-select mb-2" required></select>
+                <input id="runtimeLogDate" type="date" class="form-control mb-2" required>
+                <input id="runtimeHours" type="number" step="0.1" min="0.1" max="24" class="form-control mb-2" placeholder="Runtime Hours (max 24)" required>
+                <button class="btn btn-success">Record Runtime</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form id="downtime-form" class="card p-3 h-100" data-roles="ADMIN,SHOP_FLOOR_SUPERVISOR,MAINTENANCE_ENGINEER">
+                <h5>Log Downtime</h5>
+                <select id="downtimeMachineId" class="form-select mb-2" required></select>
+                <input id="downtimeLogDate" type="date" class="form-control mb-2" required>
+                <input id="downtimeHours" type="number" step="0.1" min="0.1" max="24" class="form-control mb-2" placeholder="Downtime Hours (max 24)" required>
+                <input id="downtimeReason" class="form-control mb-2" placeholder="Downtime Reason">
+                <button class="btn btn-danger">Log Downtime</button>
+            </form>
+        </div>
+    </div>
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0 text-primary">Machine OEE Summary</h5>
+                <span class="badge bg-info text-dark">Availability based OEE</span>
+            </div>
+            <div class="row g-3" id="machine-oee-cards"></div>
+        </div>
+    </div>
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <div class="table-responsive"><table class="table table-bordered table-striped align-middle"><thead class="table-dark"><tr><th>Machine</th><th>Date</th><th>Runtime</th><th>Downtime</th><th>Daily OEE</th><th>Downtime Reason</th><th>Status</th></tr></thead><tbody id="machine-oee-table"></tbody></table></div>
+        </div>
+    </div>
+</section>
+

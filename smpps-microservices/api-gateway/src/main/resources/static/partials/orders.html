@@ -1,0 +1,19 @@
+<section id="orders" class="page-section d-none">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">Production Orders</h2>
+        <button class="btn btn-outline-primary" data-refresh="orders">Refresh</button>
+    </div>
+    <div class="row g-3 mb-4" id="order-summary-cards"></div>
+    <form id="order-form" class="card p-3 mb-4" data-roles="ADMIN,PRODUCTION_PLANNER">
+        <input type="hidden" id="orderId">
+        <div class="row g-2">
+            <div class="col-md-3"><select id="orderProductId" class="form-select" required></select></div>
+            <div class="col-md-3"><input id="plannedQuantity" class="form-control" type="number" min="1" placeholder="Planned Qty" required></div>
+            <div class="col-md-2"><input id="startDate" class="form-control" type="date" required></div>
+            <div class="col-md-2"><input id="endDate" class="form-control" type="date" required></div>
+            <div class="col-md-1 d-grid"><button class="btn btn-success" type="submit">Save</button></div>
+        </div>
+    </form>
+    <div class="table-responsive"><table class="table table-bordered table-striped align-middle"><thead class="table-dark"><tr><th>ID</th><th>Product</th><th>Planned</th><th>Produced</th><th>Start</th><th>End</th><th>Status</th><th>Work Center</th><th>Actions</th></tr></thead><tbody id="orders-table"></tbody></table></div>
+</section>
+

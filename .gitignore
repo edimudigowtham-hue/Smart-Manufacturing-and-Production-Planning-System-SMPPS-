@@ -1,0 +1,31 @@
+# IDE files
+.idea/
+*.iml
+
+# Maven / Java build output
+**/target/
+
+# Runtime logs
+*.log
+
+# Temporary local test/debug outputs
+*debug*
+*smoke*
+*netstat*
+port-*.txt
+*-result.txt
+
+# Local helper scripts generated during troubleshooting
+split-js.py
+
+.idea/
+data/
+
+smpps-microservices/machine-service/
+smpps-microservices/maintenance-service/
+smpps-microservices/product-service/
+smpps-microservices/production-order-service/
+smpps-microservices/quality-service/
+
+target/
+*.log

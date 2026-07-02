@@ -1,0 +1,49 @@
+<section id="products" class="page-section d-none">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">Product Master</h2>
+        <button class="btn btn-outline-primary" data-refresh="products">Refresh</button>
+    </div>
+    <div class="row g-3 mb-4" id="product-summary-cards"></div>
+    <form id="product-form" class="card p-3 mb-4" data-roles="ADMIN,PRODUCTION_PLANNER">
+        <input type="hidden" id="productId">
+        <div class="row g-2">
+            <div class="col-md-4"><input id="productName" class="form-control" placeholder="Product Name" required></div>
+            <div class="col-md-3"><input id="productCode" class="form-control" placeholder="Product Code" required></div>
+            <div class="col-md-2"><input id="standardCost" class="form-control" type="number" step="0.01" min="0" placeholder="Cost" required></div>
+            <div class="col-md-2">
+                <select id="productStatus" class="form-select" required>
+                    <option value="ACTIVE">ACTIVE</option>
+                    <option value="INACTIVE">INACTIVE</option>
+                    <option value="PHASED_OUT">PHASED_OUT</option>
+                </select>
+            </div>
+            <div class="col-md-1 d-grid"><button class="btn btn-success" type="submit">Save</button></div>
+        </div>
+    </form>
+    <div id="bom-management-card" class="card p-3 mb-4" data-roles="ADMIN,PRODUCTION_PLANNER">
+        <h5>BOM Management</h5>
+        <div class="form-text mb-2">Create BOM versions after product creation, then add components to the selected version.</div>
+        <div class="row g-2">
+            <div class="col-md-4"><select id="bomVersionProductId" class="form-select" required></select></div>
+            <div class="col-md-3"><input id="newBomVersion" class="form-control" placeholder="BOM Version" required></div>
+            <div class="col-md-2 d-grid"><button id="create-bom-button" class="btn btn-primary" type="button">Create BOM</button></div>
+        </div>
+        <hr>
+        <form id="bom-component-form">
+            <div class="row g-2">
+                <div class="col-md-3"><select id="componentProductId" class="form-select" required></select></div>
+                <div class="col-md-3"><select id="componentBomId" class="form-select" required><option value="">Select BOM Version</option></select></div>
+                <div class="col-md-2 d-grid"><button id="activate-bom-button" class="btn btn-outline-success" type="button">Activate BOM</button></div>
+            </div>
+            <div class="row g-2 mt-2">
+                <div class="col-md-2"><input id="componentCode" class="form-control" placeholder="Component Code" required></div>
+                <div class="col-md-3"><input id="componentName" class="form-control" placeholder="Component Name" required></div>
+                <div class="col-md-1"><input id="componentQuantity" class="form-control" type="number" step="0.01" min="0.01" placeholder="Qty" required></div>
+                <div class="col-md-1"><input id="unitOfMeasure" class="form-control" placeholder="Unit" required></div>
+                <div class="col-md-3 d-grid"><button class="btn btn-primary" type="submit">Add Component</button></div>
+            </div>
+        </form>
+    </div>
+    <div class="table-responsive"><table class="table table-bordered table-striped align-middle"><thead class="table-dark"><tr><th>ID</th><th>Name</th><th>Code</th><th>Active BOM</th><th>Cost</th><th>Status</th><th>Actions</th></tr></thead><tbody id="products-table"></tbody></table></div>
+</section>
+
