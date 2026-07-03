@@ -33,6 +33,7 @@ public class FactoryMachine {
     public String getMachineName() { return machineName; }
     public void setMachineName(String machineName) { this.machineName = machineName; }
 
-    
+    public MachineAvailability getAvailability() { return availability; }
+    public void setAvailability(MachineAvailability availability) { this.availability = availability; }
 }
 
